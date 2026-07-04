@@ -6,7 +6,7 @@
 <title>BarberBary — The Digital Brand Platform for Barbers in Israel</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#0B0B0B;
@@ -15,7 +15,7 @@
   --grey:#9C9C9C;
   --line:#262624;
   --gold:#C9A24B;
-  --font-display:'Anton', 'Arial Black', sans-serif;
+  --font-display:'Archivo Black', 'Arial Black', sans-serif;
   --font-body:'Inter', 'Helvetica Neue', sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
@@ -29,8 +29,8 @@ h1,h2,.display{
   font-family:var(--font-display);
   font-weight:400;
   text-transform:uppercase;
-  line-height:.95;
-  letter-spacing:.005em;
+  line-height:1;
+  letter-spacing:-.015em;
 }
 
 /* buttons */
@@ -93,8 +93,8 @@ nav{
   background:radial-gradient(700px 380px at 50% -8%,rgba(201,162,75,.14),transparent 62%),var(--bg);
 }
 .hero h1{
-  font-size:clamp(2.4rem,6.6vw,5.4rem);
-  max-width:15ch;margin:0 auto 20px;
+  font-size:clamp(2rem,5.6vw,4.4rem);
+  max-width:16ch;margin:0 auto 20px;
   animation:riseIn .8s cubic-bezier(.2,.7,.2,1) both;
 }
 .hero p{
@@ -172,7 +172,7 @@ nav{
   border-block:1px solid var(--line);
   padding:72px 0;text-align:center;
 }
-.ai-band h2{font-size:clamp(1.8rem,4vw,3rem);max-width:22ch;margin:0 auto 16px}
+.ai-band h2{font-size:clamp(1.5rem,3.2vw,2.5rem);max-width:24ch;margin:0 auto 16px}
 .ai-band h2 em{font-style:normal;color:var(--gold)}
 .ai-band p{color:var(--grey);max-width:30rem;margin:0 auto 28px;font-size:.94rem;font-weight:500}
 
@@ -184,7 +184,7 @@ nav{
 }
 .feature:last-child{border-bottom:none}
 .feature.flip .f-media{order:-1}
-.feature h2{font-size:clamp(2rem,4.2vw,3.4rem);margin-bottom:14px}
+.feature h2{font-size:clamp(1.7rem,3.5vw,2.8rem);margin-bottom:14px}
 .feature .f-copy p{color:var(--grey);font-size:.96rem;font-weight:500;max-width:24rem;margin-bottom:24px}
 .f-media{position:relative;min-height:360px;display:flex;align-items:center;justify-content:center}
 .photo{
@@ -270,10 +270,10 @@ nav{
 /* FOR tabs */
 .for-sec{background:var(--surface);border-block:1px solid var(--line);padding:70px 0}
 .for-head{display:flex;align-items:baseline;gap:26px;flex-wrap:wrap;margin-bottom:34px}
-.for-head .for-word{font-size:clamp(2rem,4vw,3.2rem)}
+.for-head .for-word{font-size:clamp(1.7rem,3.4vw,2.7rem)}
 .tabs{display:flex;gap:24px;flex-wrap:wrap}
 .tab{
-  font-family:var(--font-display);font-size:clamp(1.25rem,2.8vw,2rem);
+  font-family:var(--font-display);font-size:clamp(1.05rem,2.3vw,1.6rem);
   text-transform:uppercase;background:none;border:none;cursor:pointer;
   color:#4B4B48;transition:color .2s;padding:0;line-height:1;
 }
@@ -288,7 +288,7 @@ nav{
 
 /* stories */
 .stories{padding:70px 0}
-.stories h2{font-size:clamp(2rem,4vw,3.2rem);margin-bottom:34px}
+.stories h2{font-size:clamp(1.7rem,3.4vw,2.7rem);margin-bottom:34px}
 .story-viewport{overflow:hidden}
 .story-track{display:flex;gap:20px;transition:transform .5s ease}
 .story{
@@ -318,13 +318,42 @@ nav{
 .snav:hover{background:var(--fg);color:#0B0B0B}
 .snav:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
 
+/* pricing */
+.pricing{padding:70px 0;border-top:1px solid var(--line)}
+.pricing h2{font-size:clamp(1.7rem,3.4vw,2.7rem);margin-bottom:10px}
+.pricing .sec-sub{color:var(--grey);font-size:.94rem;font-weight:500;max-width:34rem;margin-bottom:36px}
+.price-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.price-card{
+  border:1px solid var(--line);border-radius:16px;padding:32px 30px;background:var(--surface);
+  display:flex;flex-direction:column;gap:14px;
+}
+.price-card.hot{border-color:rgba(201,162,75,.5);background:linear-gradient(165deg,rgba(201,162,75,.12),rgba(201,162,75,.02) 60%),var(--surface)}
+.price-kicker{font-size:.66rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.price-card h3{font-family:var(--font-display);font-size:1.25rem;text-transform:uppercase;letter-spacing:-.01em}
+.price-num{font-family:var(--font-display);font-size:2rem}
+.price-num small{font-family:var(--font-body);font-size:.78rem;font-weight:600;color:var(--grey)}
+.price-card ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.price-card li{font-size:.88rem;font-weight:500;color:#D8D8D8;display:flex;gap:9px;align-items:baseline}
+.price-card li::before{content:'✦';color:var(--gold);font-size:.7rem;flex-shrink:0}
+.price-note{font-size:.76rem;color:var(--grey);font-weight:500;margin-top:22px}
+
+/* about */
+.about{padding:70px 0;border-top:1px solid var(--line);background:var(--surface)}
+.about-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:52px;align-items:center}
+.about h2{font-size:clamp(1.7rem,3.4vw,2.7rem)}
+.about p{color:var(--grey);font-size:.96rem;font-weight:500;margin-bottom:16px}
+.about p strong{color:var(--fg);font-weight:600}
+@media(max-width:1000px){
+  .price-grid,.about-grid{grid-template-columns:1fr}
+}
+
 /* big cta */
 .get{
   text-align:center;padding:96px 0;
   background:radial-gradient(560px 320px at 50% 115%,rgba(201,162,75,.2),transparent 65%),var(--bg);
   border-top:1px solid var(--line);
 }
-.get h2{font-size:clamp(2.7rem,8.5vw,6.4rem);margin-bottom:30px}
+.get h2{font-size:clamp(2.2rem,7vw,5rem);margin-bottom:30px}
 .get h2 span{color:var(--gold)}
 .get .sub{color:var(--grey);font-weight:500;margin:-14px auto 30px;max-width:28rem;font-size:.92rem}
 
@@ -378,10 +407,10 @@ footer{border-top:1px solid var(--line);padding:52px 0 30px;background:#0A0A0A}
   <div class="wrap nav-in">
     <a class="logo" href="#">Barber<span>Bary</span></a>
     <div class="nav-links">
-      <a href="#how">How it works</a>
-      <a href="#ai">BarberBary AI</a>
-      <a href="#for">Who it's for</a>
-      <a href="#stories">Stories</a>
+      <a href="#how">What is BarberBary</a>
+      <a href="#for">Products and Solutions</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#about">About us</a>
     </div>
     <div class="nav-right">
       <a class="login" href="#contact">Login</a>
@@ -611,6 +640,53 @@ footer{border-top:1px solid var(--line);padding:52px 0 30px;background:#0A0A0A}
   </div>
 </section>
 
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="wrap">
+    <h2 class="reveal">Pricing</h2>
+    <p class="sec-sub reveal">BarberBary is a brand studio, not a subscription template. Every shop is built by hand on our proven foundation — priced in two parts.</p>
+    <div class="price-grid">
+      <div class="price-card hot reveal">
+        <span class="price-kicker">One-time</span>
+        <h3>The Brand Build</h3>
+        <div class="price-num">From ₪8,000</div>
+        <ul>
+          <li>Discovery session in your shop — your style, your clients, your vibe</li>
+          <li>Custom-designed website on your own domain</li>
+          <li>Your own booking app, with your name and icon</li>
+          <li>WhatsApp AI receptionist configured in your voice</li>
+          <li>Client list migration and full launch support</li>
+        </ul>
+      </div>
+      <div class="price-card reveal">
+        <span class="price-kicker">Monthly</span>
+        <h3>The Partnership</h3>
+        <div class="price-num">₪290<small> / month</small></div>
+        <ul>
+          <li>Hosting, security and maintenance — everything just works</li>
+          <li>WhatsApp AI included — it keeps booking while you cut</li>
+          <li>Deposits and payment links to kill no-shows</li>
+          <li>Monthly design and content tweaks on request</li>
+          <li>Priority support, direct line to the team</li>
+        </ul>
+      </div>
+    </div>
+    <p class="price-note reveal">Founding cohort: the first 10 shops in Tel Aviv &amp; Rishon LeZion lock reduced founder pricing for life. Ask us on WhatsApp.</p>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <h2 class="reveal">About us</h2>
+    <div class="reveal">
+      <p><strong>BarberBary is a digital brand studio for barbershops and nail studios in Israel.</strong> We think every great shop deserves more than a slot inside somebody else's booking app — it deserves its own website, its own app, and its own AI answering clients on WhatsApp.</p>
+      <p>Every build is designed one-on-one with the shop owner, on a foundation we've engineered for one industry only. That's why no two BarberBary shops look alike — and why all of them run flawlessly.</p>
+      <p>Based in Rishon LeZion. Working across Tel Aviv and the center. Taking a limited number of new shops each year.</p>
+    </div>
+  </div>
+</section>
+
 <!-- BIG CTA -->
 <section class="get" id="contact">
   <div class="wrap">
@@ -632,23 +708,22 @@ footer{border-top:1px solid var(--line);padding:52px 0 30px;background:#0A0A0A}
         <a class="btn btn-primary" style="padding:11px 24px;font-size:.64rem" href="#contact">Get Started</a>
       </div>
       <div class="fcol">
-        <h5>How it works</h5>
-        <a href="#how">Fill your chair</a>
-        <a href="#how">Lock in loyalty</a>
-        <a href="#how">Get paid fast</a>
+        <h5>Explore</h5>
+        <a href="#how">What is BarberBary</a>
+        <a href="#for">Products and Solutions</a>
         <a href="#ai">BarberBary AI</a>
       </div>
       <div class="fcol">
-        <h5>Who it's for</h5>
-        <a href="#for">Barbers</a>
-        <a href="#for">Nail artists</a>
-        <a href="#for">Clients</a>
+        <h5>Pricing</h5>
+        <a href="#pricing">The Brand Build</a>
+        <a href="#pricing">The Partnership</a>
+        <a href="#contact">Founding cohort</a>
       </div>
       <div class="fcol">
         <h5>Company</h5>
+        <a href="#about">About us</a>
         <a href="#stories">Stories</a>
         <a href="#contact">Contact</a>
-        <a href="#contact">Founding cohort</a>
       </div>
     </div>
     <div class="foot-base">
