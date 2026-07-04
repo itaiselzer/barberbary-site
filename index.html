@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BarberBary — The Digital Brand Platform for Barbers in Israel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0B0B0B;
+  --surface:#151513;
+  --fg:#FFFFFF;
+  --grey:#9C9C9C;
+  --line:#262624;
+  --gold:#C9A24B;
+  --font-display:'Anton', 'Arial Black', sans-serif;
+  --font-body:'Inter', 'Helvetica Neue', sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--font-body);line-height:1.55;overflow-x:hidden;font-size:15px}
+img{max-width:100%;display:block}
+::selection{background:var(--gold);color:#0B0B0B}
+.wrap{max-width:1160px;margin:0 auto;padding:0 22px}
+
+h1,h2,.display{
+  font-family:var(--font-display);
+  font-weight:400;
+  text-transform:uppercase;
+  line-height:.95;
+  letter-spacing:.005em;
+}
+
+/* buttons */
+.btn{
+  display:inline-block;
+  font-family:var(--font-body);
+  font-weight:700;font-size:.74rem;
+  letter-spacing:.14em;text-transform:uppercase;
+  padding:14px 30px;border-radius:100px;
+  text-decoration:none;cursor:pointer;border:none;
+  transition:transform .2s ease,background .2s ease,color .2s ease;
+}
+.btn:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.btn-primary{background:var(--fg);color:#0B0B0B}
+.btn-primary:hover{background:#DEDEDE;transform:translateY(-2px)}
+.btn-gold{background:var(--gold);color:#0B0B0B}
+.btn-gold:hover{background:#DDB65E;transform:translateY(-2px)}
+.btn-line{background:transparent;color:var(--fg);box-shadow:inset 0 0 0 2px var(--fg)}
+.btn-line:hover{background:var(--fg);color:#0B0B0B}
+.link-arrow{
+  font-weight:700;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--fg);text-decoration:none;display:inline-flex;align-items:center;gap:9px;
+  border-bottom:2px solid var(--gold);padding-bottom:3px;transition:gap .2s;
+}
+.link-arrow:hover{gap:15px}
+
+/* announcement */
+.announce{
+  background:var(--gold);color:#0B0B0B;
+  text-align:center;font-size:.7rem;font-weight:700;letter-spacing:.1em;
+  padding:8px 14px;text-transform:uppercase;
+}
+.announce a{color:#0B0B0B;text-decoration:underline}
+
+/* nav */
+nav{
+  position:sticky;top:0;z-index:60;background:rgba(11,11,11,.9);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:60px;gap:20px}
+.logo{
+  font-family:var(--font-display);font-size:1.25rem;letter-spacing:.02em;
+  color:var(--fg);text-decoration:none;text-transform:uppercase;
+}
+.logo span{color:var(--gold)}
+.nav-links{display:flex;gap:26px;align-items:center}
+.nav-links a{
+  color:var(--fg);text-decoration:none;font-size:.82rem;font-weight:600;
+  transition:opacity .2s;
+}
+.nav-links a:hover{opacity:.55}
+.nav-right{display:flex;gap:18px;align-items:center}
+.nav-right .login{font-size:.82rem;font-weight:600;color:var(--fg);text-decoration:none}
+.nav-right .login:hover{opacity:.55}
+.nav-cta{padding:10px 22px;font-size:.68rem}
+
+/* hero */
+.hero{padding:60px 0 48px;text-align:center;
+  background:radial-gradient(700px 380px at 50% -8%,rgba(201,162,75,.14),transparent 62%),var(--bg);
+}
+.hero h1{
+  font-size:clamp(2.4rem,6.6vw,5.4rem);
+  max-width:15ch;margin:0 auto 20px;
+  animation:riseIn .8s cubic-bezier(.2,.7,.2,1) both;
+}
+.hero p{
+  font-size:.98rem;color:var(--grey);max-width:30rem;margin:0 auto 26px;font-weight:500;
+  animation:riseIn .8s cubic-bezier(.2,.7,.2,1) .12s both;
+}
+.hero .btn{animation:riseIn .8s cubic-bezier(.2,.7,.2,1) .22s both}
+.hero-phone-stage{
+  margin:52px auto 0;position:relative;max-width:820px;
+  display:flex;justify-content:center;align-items:flex-end;gap:0;
+}
+@keyframes riseIn{
+  from{opacity:0;transform:translateY(34px)}
+  to{opacity:1;transform:none}
+}
+@keyframes phoneMain{
+  from{opacity:0;transform:translateY(120px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes phoneLeft{
+  from{opacity:0;transform:rotate(-7deg) translateY(28px) translateX(-140px)}
+  to{opacity:.85;transform:rotate(-7deg) translateY(28px) translateX(0)}
+}
+@keyframes phoneRight{
+  from{opacity:0;transform:rotate(7deg) translateY(28px) translateX(140px)}
+  to{opacity:.85;transform:rotate(7deg) translateY(28px) translateX(0)}
+}
+.phone.main{animation:phoneMain .9s cubic-bezier(.2,.7,.2,1) .35s both}
+.phone.side.l{animation:phoneLeft .9s cubic-bezier(.2,.7,.2,1) .55s both}
+.phone.side.r{animation:phoneRight .9s cubic-bezier(.2,.7,.2,1) .55s both}
+
+/* phones */
+.phone{
+  width:226px;height:462px;border-radius:38px;background:#000;
+  padding:9px;position:relative;flex-shrink:0;
+  box-shadow:0 0 0 1px rgba(255,255,255,.1),0 30px 70px rgba(0,0,0,.7);
+}
+.phone::before{
+  content:'';position:absolute;top:17px;left:50%;transform:translateX(-50%);
+  width:74px;height:20px;background:#000;border-radius:20px;z-index:3;
+}
+.phone.side{width:190px;height:392px;opacity:.85}
+.phone.side.l{transform:rotate(-7deg) translateY(28px);margin-right:-38px;z-index:1}
+.phone.side.r{transform:rotate(7deg) translateY(28px);margin-left:-38px;z-index:1}
+.phone.main{z-index:2}
+.scr{width:100%;height:100%;border-radius:31px;overflow:hidden;background:#141414;display:flex;flex-direction:column;text-align:left}
+.scr-dark{background:#161616;color:var(--fg)}
+.scr-light{background:#F7F6F3;color:#0B0B0B}
+.scr-head{padding:42px 16px 12px}
+.scr-logo{
+  width:38px;height:38px;border-radius:10px;background:var(--gold);color:#0B0B0B;
+  font-family:var(--font-display);font-size:1.1rem;display:flex;align-items:center;justify-content:center;
+  margin-bottom:9px;
+}
+.scr-name{font-family:var(--font-display);font-size:1rem;text-transform:uppercase;letter-spacing:.02em}
+.scr-sub{font-size:.62rem;color:#999;margin-top:2px;font-weight:500}
+.scr-body{padding:11px 14px;display:flex;flex-direction:column;gap:7px;flex:1}
+.slot{
+  border:1px solid rgba(255,255,255,.15);border-radius:9px;padding:9px 11px;
+  font-size:.66rem;font-weight:600;display:flex;justify-content:space-between;align-items:center;gap:6px;
+}
+.scr-light .slot{border-color:#DDD9D0}
+.slot small{font-weight:500;color:#999;font-size:.58rem;white-space:nowrap}
+.slot.hot{background:var(--gold);color:#0B0B0B;border-color:transparent}
+.slot.hot small{color:rgba(0,0,0,.6)}
+.scr-btn{
+  margin-top:auto;background:var(--fg);color:#0B0B0B;border-radius:100px;
+  text-align:center;padding:10px;font-weight:700;font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;
+}
+.scr-light .scr-btn{background:#0B0B0B;color:var(--fg)}
+
+/* ai band */
+.ai-band{
+  background:linear-gradient(180deg,#111 0%,#0B0B0B 100%);
+  border-block:1px solid var(--line);
+  padding:72px 0;text-align:center;
+}
+.ai-band h2{font-size:clamp(1.8rem,4vw,3rem);max-width:22ch;margin:0 auto 16px}
+.ai-band h2 em{font-style:normal;color:var(--gold)}
+.ai-band p{color:var(--grey);max-width:30rem;margin:0 auto 28px;font-size:.94rem;font-weight:500}
+
+/* feature rows */
+.features{padding:16px 0 0}
+.feature{
+  display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center;
+  padding:60px 0;border-bottom:1px solid var(--line);
+}
+.feature:last-child{border-bottom:none}
+.feature.flip .f-media{order:-1}
+.feature h2{font-size:clamp(2rem,4.2vw,3.4rem);margin-bottom:14px}
+.feature .f-copy p{color:var(--grey);font-size:.96rem;font-weight:500;max-width:24rem;margin-bottom:24px}
+.f-media{position:relative;min-height:360px;display:flex;align-items:center;justify-content:center}
+.photo{
+  width:100%;height:340px;border-radius:16px;position:relative;overflow:hidden;
+  display:flex;align-items:flex-end;padding:22px;
+  border:1px solid var(--line);
+}
+.photo .ph-label{
+  font-family:var(--font-display);text-transform:uppercase;color:rgba(255,255,255,.92);
+  font-size:.9rem;letter-spacing:.04em;line-height:1.2;
+}
+.photo-1{background:
+  radial-gradient(360px 250px at 78% 18%,rgba(201,162,75,.45),transparent 60%),
+  linear-gradient(160deg,#26221B 0%,#0E0E0D 70%)}
+.photo-2{background:
+  radial-gradient(360px 250px at 22% 14%,rgba(201,162,75,.38),transparent 60%),
+  linear-gradient(200deg,#201D17 0%,#0E0E0D 70%)}
+.photo-3{background:
+  radial-gradient(360px 250px at 80% 80%,rgba(201,162,75,.32),transparent 60%),
+  linear-gradient(140deg,#242017 0%,#0E0E0D 72%)}
+.photo::after{
+  content:'✂';position:absolute;top:18px;right:22px;font-size:1.3rem;opacity:.35;color:#fff;
+}
+/* floating ui cards */
+.ui-card{
+  position:absolute;background:#FFFFFF;color:#0B0B0B;border-radius:15px;
+  box-shadow:0 22px 55px rgba(0,0,0,.5);padding:16px;width:216px;
+}
+.ui-card h4{font-size:.76rem;font-weight:700;margin-bottom:10px}
+.ui-map{bottom:-24px;left:-18px}
+.map-canvas{
+  height:98px;border-radius:10px;position:relative;margin-bottom:10px;
+  background:
+    linear-gradient(90deg,transparent 48%,#E7E4DC 48% 52%,transparent 52%),
+    linear-gradient(0deg,transparent 63%,#E7E4DC 63% 66%,transparent 66%),
+    linear-gradient(35deg,transparent 40%,#EDEAE3 40% 43%,transparent 43%),
+    #F5F3EE;
+}
+.pin{
+  position:absolute;background:#0B0B0B;color:#fff;font-size:.55rem;font-weight:700;
+  padding:3px 8px;border-radius:100px;display:flex;gap:4px;align-items:center;
+}
+.pin b{color:var(--gold)}
+.ui-search{
+  display:flex;align-items:center;gap:7px;background:#F5F3EE;border-radius:100px;
+  padding:8px 12px;font-size:.7rem;color:#6B6B6B;font-weight:500;
+}
+.ui-icons{bottom:-24px;right:-18px;width:228px}
+.icon-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:11px}
+.app-icon{
+  aspect-ratio:1;border-radius:11px;display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-display);font-size:.92rem;cursor:pointer;
+  transition:transform .15s,box-shadow .15s;color:#fff;border:none;
+}
+.app-icon:hover{transform:scale(1.08)}
+.app-icon.sel{box-shadow:0 0 0 2px #fff,0 0 0 4px #0B0B0B}
+.app-icon:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.ic-1{background:#0B0B0B}.ic-1 span{color:var(--gold)}
+.ic-2{background:linear-gradient(135deg,#C9A24B,#8F6F2B)}
+.ic-3{background:linear-gradient(135deg,#3A3A3A,#111)}
+.ic-4{background:linear-gradient(135deg,#7C5CFF,#4B2ED6)}
+.ic-5{background:linear-gradient(135deg,#E8B4B8,#C77F86);color:#3A1218}
+.ic-6{background:linear-gradient(135deg,#2E4C8F,#16264C)}
+.ic-7{background:linear-gradient(135deg,#B3382E,#6E1F19)}
+.ic-8{background:#F0EDE6;color:#0B0B0B}
+.ui-icons input{
+  width:100%;border:1px solid #E4E2DD;border-radius:9px;padding:8px 11px;
+  font-family:var(--font-body);font-size:.74rem;font-weight:600;
+}
+.ui-icons input:focus{outline:2px solid #0B0B0B}
+.ui-icons .hint{font-size:.6rem;color:#6B6B6B;margin-top:7px}
+.ui-pay{bottom:-24px;left:-18px;text-align:center}
+.ui-pay .amount{font-family:var(--font-display);font-size:2rem;margin:5px 0 2px}
+.ui-pay .pay-sub{font-size:.62rem;color:#6B6B6B;font-weight:600;text-transform:uppercase;letter-spacing:.1em}
+.pay-chip{
+  margin:13px auto 0;background:#0B0B0B;color:#fff;
+  border-radius:11px;padding:11px;font-size:.68rem;font-weight:700;letter-spacing:.06em;
+  display:flex;align-items:center;justify-content:center;gap:7px;
+}
+.pay-chip .dot{width:7px;height:7px;border-radius:50%;background:#43D17C;animation:pulse 1.6s infinite}
+@keyframes pulse{50%{opacity:.35}}
+
+/* FOR tabs */
+.for-sec{background:var(--surface);border-block:1px solid var(--line);padding:70px 0}
+.for-head{display:flex;align-items:baseline;gap:26px;flex-wrap:wrap;margin-bottom:34px}
+.for-head .for-word{font-size:clamp(2rem,4vw,3.2rem)}
+.tabs{display:flex;gap:24px;flex-wrap:wrap}
+.tab{
+  font-family:var(--font-display);font-size:clamp(1.25rem,2.8vw,2rem);
+  text-transform:uppercase;background:none;border:none;cursor:pointer;
+  color:#4B4B48;transition:color .2s;padding:0;line-height:1;
+}
+.tab:hover{color:#8A8A86}
+.tab.on{color:var(--fg);border-bottom:4px solid var(--gold)}
+.tab:focus-visible{outline:3px solid var(--gold);outline-offset:4px}
+.panel{display:none;grid-template-columns:1.35fr 1fr;gap:44px;align-items:center}
+.panel.on{display:grid}
+.panel .photo{height:290px}
+.panel h3{font-size:1.15rem;font-weight:800;margin-bottom:10px}
+.panel p{color:var(--grey);font-weight:500;margin-bottom:22px;font-size:.94rem}
+
+/* stories */
+.stories{padding:70px 0}
+.stories h2{font-size:clamp(2rem,4vw,3.2rem);margin-bottom:34px}
+.story-viewport{overflow:hidden}
+.story-track{display:flex;gap:20px;transition:transform .5s ease}
+.story{
+  flex:0 0 min(356px,84vw);border:1px solid var(--line);border-radius:16px;
+  padding:28px 26px;background:var(--surface);display:flex;flex-direction:column;gap:18px;
+}
+.story.press{background:linear-gradient(165deg,rgba(201,162,75,.14),rgba(201,162,75,.03) 60%),var(--surface);border-color:rgba(201,162,75,.45)}
+.story q{font-size:.94rem;font-weight:500;line-height:1.6;quotes:'“' '”'}
+.story .who{display:flex;align-items:center;gap:12px;margin-top:auto}
+.ava{
+  width:40px;height:40px;border-radius:50%;flex-shrink:0;
+  background:linear-gradient(135deg,var(--gold),#8F6F2B);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-display);color:#0B0B0B;font-size:.9rem;
+}
+.who b{font-size:.82rem;display:block}
+.who small{font-size:.7rem;color:var(--grey)}
+.press-tag{
+  font-family:var(--font-display);font-size:1.2rem;text-transform:uppercase;color:var(--gold);
+}
+.story-nav{display:flex;gap:10px;margin-top:26px}
+.snav{
+  width:44px;height:44px;border-radius:50%;border:2px solid var(--fg);
+  background:transparent;color:var(--fg);cursor:pointer;font-size:1rem;
+  transition:background .2s,color .2s;
+}
+.snav:hover{background:var(--fg);color:#0B0B0B}
+.snav:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+
+/* big cta */
+.get{
+  text-align:center;padding:96px 0;
+  background:radial-gradient(560px 320px at 50% 115%,rgba(201,162,75,.2),transparent 65%),var(--bg);
+  border-top:1px solid var(--line);
+}
+.get h2{font-size:clamp(2.7rem,8.5vw,6.4rem);margin-bottom:30px}
+.get h2 span{color:var(--gold)}
+.get .sub{color:var(--grey);font-weight:500;margin:-14px auto 30px;max-width:28rem;font-size:.92rem}
+
+/* footer */
+footer{border-top:1px solid var(--line);padding:52px 0 30px;background:#0A0A0A}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:36px;margin-bottom:42px}
+.foot-brand .logo{font-size:1.2rem}
+.foot-brand p{color:var(--grey);font-size:.82rem;font-weight:500;margin:13px 0 18px;max-width:20rem}
+.fcol h5{
+  font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:#6E6E6E;margin-bottom:14px;font-weight:700;
+}
+.fcol a{display:block;color:#CFCFCF;text-decoration:none;font-size:.82rem;font-weight:500;padding:5px 0}
+.fcol a:hover{color:var(--gold)}
+.foot-base{
+  border-top:1px solid var(--line);padding-top:20px;display:flex;justify-content:space-between;
+  gap:14px;flex-wrap:wrap;color:#6E6E6E;font-size:.72rem;font-weight:500;
+}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .75s cubic-bezier(.2,.7,.2,1),transform .75s cubic-bezier(.2,.7,.2,1)}
+.reveal.from-left{transform:translateX(-70px)}
+.reveal.from-right{transform:translateX(70px)}
+.reveal.in{opacity:1;transform:none}
+.f-media .ui-card{opacity:0;transform:translateY(26px);transition:opacity .6s ease .4s,transform .6s ease .4s}
+.f-media.in .ui-card{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .reveal,.f-media .ui-card{opacity:1;transform:none}
+  .hero h1,.hero p,.hero .btn,.phone.main{opacity:1}
+  .phone.side{opacity:.85}
+}
+
+@media(max-width:1000px){
+  .nav-links{display:none}
+  .feature{grid-template-columns:1fr;gap:70px;padding:48px 0}
+  .feature.flip .f-media{order:0}
+  .panel{grid-template-columns:1fr;gap:36px}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .phone.side{display:none}
+  .ui-card{width:206px}
+  .ui-map,.ui-pay{left:8px}
+  .ui-icons{right:8px}
+}
+</style>
+</head>
+<body>
+
+<div class="announce">Introducing BarberBary AI — your WhatsApp receptionist &nbsp;·&nbsp; <a href="#ai">See it work →</a></div>
+
+<nav>
+  <div class="wrap nav-in">
+    <a class="logo" href="#">Barber<span>Bary</span></a>
+    <div class="nav-links">
+      <a href="#how">How it works</a>
+      <a href="#ai">BarberBary AI</a>
+      <a href="#for">Who it's for</a>
+      <a href="#stories">Stories</a>
+    </div>
+    <div class="nav-right">
+      <a class="login" href="#contact">Login</a>
+      <a class="btn btn-primary nav-cta" href="#contact">Get Started</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <h1>The digital brand for every barber!</h1>
+    <p>The only platform in Israel that gives barbers and nail artists their own website, their own app, and an AI that books clients on WhatsApp.</p>
+    <a class="btn btn-gold" href="#contact">Get Started Today</a>
+
+    <div class="hero-phone-stage">
+      <div class="phone side l" aria-hidden="true">
+        <div class="scr scr-light">
+          <div class="scr-head">
+            <div class="scr-logo" style="background:#E8B4B8;color:#3A1218">N</div>
+            <div class="scr-name">Noya Nails</div>
+            <div class="scr-sub">Nail Studio · Rishon LeZion</div>
+          </div>
+          <div class="scr-body">
+            <div class="slot">Gel Manicure <small>Sun · 09:30</small></div>
+            <div class="slot hot">Full Set <small>Sun · 11:00</small></div>
+            <div class="slot">Fill + Design <small>Sun · 13:30</small></div>
+            <div class="scr-btn">Book Now</div>
+          </div>
+        </div>
+      </div>
+      <div class="phone main">
+        <div class="scr scr-dark">
+          <div class="scr-head">
+            <div class="scr-logo">F</div>
+            <div class="scr-name">Fadeout TLV</div>
+            <div class="scr-sub">Barbershop · Tel Aviv</div>
+          </div>
+          <div class="scr-body">
+            <div class="slot hot">Skin Fade + Beard <small>Tomorrow · 10:30</small></div>
+            <div class="slot">Classic Cut <small>Tomorrow · 12:00</small></div>
+            <div class="slot">Kids Cut <small>Tomorrow · 14:30</small></div>
+            <div class="slot">Beard Sculpt <small>Thu · 09:00</small></div>
+            <div class="scr-btn">Book Now</div>
+          </div>
+        </div>
+      </div>
+      <div class="phone side r" aria-hidden="true">
+        <div class="scr scr-dark">
+          <div class="scr-head">
+            <div class="scr-logo" style="background:#7C5CFF;color:#fff">K</div>
+            <div class="scr-name">King Cuts</div>
+            <div class="scr-sub">Barbershop · Rishon LeZion</div>
+          </div>
+          <div class="scr-body">
+            <div class="slot">Fade <small>Today · 17:00</small></div>
+            <div class="slot hot">Cut + Beard <small>Today · 18:30</small></div>
+            <div class="slot">Line Up <small>Today · 19:15</small></div>
+            <div class="scr-btn">Book Now</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- AI BAND -->
+<section class="ai-band" id="ai">
+  <div class="wrap">
+    <h2 class="reveal">See how <em>BarberBary AI</em> handles the business behind your business.</h2>
+    <p class="reveal">It lives in your WhatsApp. It knows your calendar, your prices, your regulars. It answers "got anything tomorrow?", offers a slot, takes a deposit — while you keep cutting.</p>
+    <a class="btn btn-primary reveal" href="#contact">Explore BarberBary AI</a>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<div class="features wrap" id="how">
+
+  <div class="feature">
+    <div class="f-copy reveal">
+      <h2>Fill your chair</h2>
+      <p>Get found where clients actually search — Google, Instagram, and WhatsApp. Your own website with your own domain, built to rank in your city.</p>
+      <a class="link-arrow" href="#contact">Get found →</a>
+    </div>
+    <div class="f-media reveal from-right">
+      <div class="photo photo-1"><div class="ph-label">Your shop.<br>Your website.</div></div>
+      <div class="ui-card ui-map">
+        <div class="map-canvas">
+          <span class="pin" style="top:14px;left:18px">💈 <b>4.9</b></span>
+          <span class="pin" style="top:48px;left:100px">💈 <b>4.8</b></span>
+          <span class="pin" style="top:72px;left:44px">💅 <b>5.0</b></span>
+        </div>
+        <div class="ui-search">🔍&nbsp; Barber near me</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="feature flip">
+    <div class="f-copy reveal">
+      <h2>Lock in loyalty</h2>
+      <p>Launch your own booking app — your name, your icon, on your clients' home screen. Not a marketplace where you sit next to the shop across the street.</p>
+      <a class="link-arrow" href="#contact">Be an icon →</a>
+    </div>
+    <div class="f-media reveal from-left">
+      <div class="photo photo-2"><div class="ph-label">Your name.<br>On their phone.</div></div>
+      <div class="ui-card ui-icons">
+        <h4>Choose your app icon</h4>
+        <div class="icon-grid" role="group" aria-label="App icon picker">
+          <button class="app-icon ic-1 sel"><span>F</span></button>
+          <button class="app-icon ic-2">F</button>
+          <button class="app-icon ic-3">F</button>
+          <button class="app-icon ic-4">F</button>
+          <button class="app-icon ic-5">F</button>
+          <button class="app-icon ic-6">F</button>
+          <button class="app-icon ic-7">F</button>
+          <button class="app-icon ic-8">F</button>
+        </div>
+        <input id="shopName" type="text" value="Fadeout TLV" maxlength="18" aria-label="Your shop name">
+        <div class="hint">Type your shop name — the icons update live.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="feature">
+    <div class="f-copy reveal">
+      <h2>Get paid fast</h2>
+      <p>Deposits by Bit or credit card the moment a client books — no-shows disappear. Waitlists refill cancelled slots automatically. Same-week payouts.</p>
+      <a class="link-arrow" href="#contact">Make more money →</a>
+    </div>
+    <div class="f-media reveal from-right">
+      <div class="photo photo-3"><div class="ph-label">Booked.<br>Deposited.<br>Done.</div></div>
+      <div class="ui-card ui-pay">
+        <div class="pay-sub">Deposit received</div>
+        <div class="amount">₪20.00</div>
+        <div class="pay-sub" style="letter-spacing:.02em;text-transform:none">Skin Fade + Beard · Tomorrow 10:30</div>
+        <div class="pay-chip"><span class="dot"></span> Paid via Bit</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOR TABS -->
+<section class="for-sec" id="for">
+  <div class="wrap">
+    <div class="for-head reveal">
+      <span class="display for-word">For</span>
+      <div class="tabs" role="tablist">
+        <button class="tab on" role="tab" aria-selected="true" data-panel="p-barbers">Barbers</button>
+        <button class="tab" role="tab" aria-selected="false" data-panel="p-nails">Nail Artists</button>
+        <button class="tab" role="tab" aria-selected="false" data-panel="p-clients">Clients</button>
+      </div>
+    </div>
+
+    <div class="panel on" id="p-barbers" role="tabpanel">
+      <div class="photo photo-1"><div class="ph-label">Fades. Beards.<br>Full chairs.</div></div>
+      <div>
+        <h3>Take control of your schedule, clients, money, and brand.</h3>
+        <p>Cut history with photos and clipper settings for every client. Monthly memberships for your regulars. A WhatsApp AI that closes bookings at 11pm so you don't have to.</p>
+        <a class="link-arrow" href="#contact">Find out how →</a>
+      </div>
+    </div>
+
+    <div class="panel" id="p-nails" role="tabpanel">
+      <div class="photo photo-2"><div class="ph-label">Gel. Builder.<br>Zero no-shows.</div></div>
+      <div>
+        <h3>Long appointments deserve serious protection.</h3>
+        <p>Smart deposits sized to the treatment. A gallery that sells your work while you sleep. Reminders and confirmations that land on WhatsApp, where your clients actually are.</p>
+        <a class="link-arrow" href="#contact">Find out how →</a>
+      </div>
+    </div>
+
+    <div class="panel" id="p-clients" role="tabpanel">
+      <div class="photo photo-3"><div class="ph-label">Book in<br>10 seconds.</div></div>
+      <div>
+        <h3>An easy, branded booking experience — in Hebrew, Arabic, or Russian.</h3>
+        <p>Your clients tap your icon, pick a slot, pay a deposit and get reminded on WhatsApp. No calls, no "who is this?", no double bookings.</p>
+        <a class="link-arrow" href="#contact">Find out how →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORIES -->
+<section class="stories" id="stories">
+  <div class="wrap">
+    <h2 class="reveal">Shop stories</h2>
+    <div class="story-viewport reveal">
+      <div class="story-track" id="storyTrack">
+        <div class="story press">
+          <span class="press-tag">The Playbook</span>
+          <q>In the US, Squire turned barbershop software into a $750M category. Israel's thousands of shops are still booking over the phone. BarberBary is here to change that.</q>
+          <div class="who"><b>Why we're building this</b></div>
+        </div>
+        <div class="story">
+          <q>I don't want to be one more shop inside somebody's booking app. I want people to download MY app. That's the whole point.</q>
+          <div class="who">
+            <div class="ava">A</div>
+            <div><b>Founding barber spot #1</b><small>Tel Aviv — this could be you</small></div>
+          </div>
+        </div>
+        <div class="story">
+          <q>Every no-show on a 2-hour gel set costs me real money. Deposits on booking would change my week.</q>
+          <div class="who">
+            <div class="ava" style="background:linear-gradient(135deg,#E8B4B8,#C77F86)">N</div>
+            <div><b>Founding studio spot #2</b><small>Rishon LeZion — this could be you</small></div>
+          </div>
+        </div>
+        <div class="story">
+          <q>Half my evenings go to answering "יש מקום מחר?" on WhatsApp. If an AI can do that and take the deposit — take my money.</q>
+          <div class="who">
+            <div class="ava">K</div>
+            <div><b>Founding barber spot #3</b><small>Tel Aviv — this could be you</small></div>
+          </div>
+        </div>
+        <div class="story press">
+          <span class="press-tag">Founding 10</span>
+          <q>We're onboarding ten founding shops in Tel Aviv and Rishon LeZion. Founder pricing, white-glove setup, direct line to the product team.</q>
+          <div class="who"><b>Claim a spot ↓</b></div>
+        </div>
+      </div>
+    </div>
+    <div class="story-nav reveal">
+      <button class="snav" id="prevStory" aria-label="Previous stories">←</button>
+      <button class="snav" id="nextStory" aria-label="Next stories">→</button>
+    </div>
+  </div>
+</section>
+
+<!-- BIG CTA -->
+<section class="get" id="contact">
+  <div class="wrap">
+    <h2 class="reveal">Get Barber<span>Bary</span></h2>
+    <p class="sub reveal">Founding cohort · Tel Aviv &amp; Rishon LeZion · Limited to 10 shops</p>
+    <div class="reveal" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+      <a class="btn btn-gold" href="https://wa.me/972500000000" target="_blank" rel="noopener">Talk to us on WhatsApp</a>
+      <a class="btn btn-line" href="mailto:hello@barberbary.co.il">hello@barberbary.co.il</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="logo" href="#">Barber<span>Bary</span></a>
+        <p>The all-in-one digital brand platform for barbers and nail artists in Israel.</p>
+        <a class="btn btn-primary" style="padding:11px 24px;font-size:.64rem" href="#contact">Get Started</a>
+      </div>
+      <div class="fcol">
+        <h5>How it works</h5>
+        <a href="#how">Fill your chair</a>
+        <a href="#how">Lock in loyalty</a>
+        <a href="#how">Get paid fast</a>
+        <a href="#ai">BarberBary AI</a>
+      </div>
+      <div class="fcol">
+        <h5>Who it's for</h5>
+        <a href="#for">Barbers</a>
+        <a href="#for">Nail artists</a>
+        <a href="#for">Clients</a>
+      </div>
+      <div class="fcol">
+        <h5>Company</h5>
+        <a href="#stories">Stories</a>
+        <a href="#contact">Contact</a>
+        <a href="#contact">Founding cohort</a>
+      </div>
+    </div>
+    <div class="foot-base">
+      <span>© 2026 BarberBary. All rights reserved.</span>
+      <span>Made in Israel</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* live icon rename */
+const nameInput = document.getElementById('shopName');
+const icons = document.querySelectorAll('.app-icon');
+function syncIcons(){
+  const letter = (nameInput.value.trim() || 'B').charAt(0).toUpperCase();
+  icons.forEach(ic=>{
+    const target = ic.querySelector('span') || ic;
+    target.textContent = letter;
+  });
+}
+nameInput.addEventListener('input', syncIcons);
+icons.forEach(ic=>{
+  ic.addEventListener('click', ()=>{
+    icons.forEach(o=>o.classList.remove('sel'));
+    ic.classList.add('sel');
+  });
+});
+syncIcons();
+
+/* tabs */
+const tabs = document.querySelectorAll('.tab');
+const panels = document.querySelectorAll('.panel');
+tabs.forEach(t=>{
+  t.addEventListener('click', ()=>{
+    tabs.forEach(x=>{x.classList.remove('on');x.setAttribute('aria-selected','false')});
+    panels.forEach(p=>p.classList.remove('on'));
+    t.classList.add('on');
+    t.setAttribute('aria-selected','true');
+    document.getElementById(t.dataset.panel).classList.add('on');
+  });
+});
+
+/* stories carousel */
+const track = document.getElementById('storyTrack');
+let idx = 0;
+const step = 376; /* card + gap */
+function maxIdx(){
+  const total = track.children.length * step - 20;
+  const view = track.parentElement.offsetWidth;
+  return Math.max(0, Math.ceil((total - view) / step));
+}
+function go(d){
+  idx = Math.min(Math.max(idx + d, 0), maxIdx());
+  track.style.transform = `translateX(${-idx * step}px)`;
+}
+document.getElementById('nextStory').addEventListener('click', ()=>go(1));
+document.getElementById('prevStory').addEventListener('click', ()=>go(-1));
+window.addEventListener('resize', ()=>go(0));
+
+/* reveals */
+const io = new IntersectionObserver(es=>{
+  es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
